@@ -4,7 +4,9 @@
   "dependencies": {
     "visionmedia/page.js": "*",
     "component/collection": "*",
-    "component/keyname": "*"
+    "component/keyname": "*",
+    "component/pager": "*",
+    "component/progress": "*"
   },
   "scripts": ["index.js"],
   "styles": ["style.css"],

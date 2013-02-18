@@ -100,3 +100,22 @@ page('/incomplete', function(){
 });
 
 page();
+
+var Pager = require('pager');
+var pager = new Pager;
+pager.el.appendTo('#pager');
+pager.total(50).perpage(10).render();
+pager.on('show', function(n){
+  console.log('selected page %d', n);
+});
+
+var Progress = require('progress');
+
+var progress = new Progress;
+document.querySelector('#progress').appendChild(progress.el);
+
+var n = 0;
+var id = setInterval(function(){
+  if (n == 100) clearInterval(id);
+  progress.update(n++);
+}, 50);

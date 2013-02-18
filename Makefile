@@ -1,12 +1,13 @@
 
-SRC = $(wildcard client/*/*.js)
+SRC = $(wildcard client/*/*.js) $(wildcard client/*/*.css)
 HTML = $(wildcard client/*/*.html)
+COMPONENTS = component.json $(wildcard client/*/component.js)
 TEMPLATES = $(HTML:.html=.js)
 
 build: components $(SRC) $(TEMPLATES)
 	@component build
 
-components: component.json
+components: $(COMPONENTS)
 	@component install
 
 %.js: %.html
