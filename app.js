@@ -9,11 +9,14 @@ var express = require('express')
   , app = express();
 
 // configure
-
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.bodyParser());
-app.use(express.static(__dirname + '/build'));
+app.configure(function(){
+  app.set('views', __dirname + '/views');
+  app.set('view engine', 'jade');
+  app.use(express.favicon());
+  app.use(express.logger('dev'));
+  app.use(express.bodyParser());
+  app.use(express.static(__dirname + '/build'));
+});
 
 // items
 
@@ -25,7 +28,8 @@ app.del('/item/:id', items.remove);
 // catch-all
 
 app.all('*', build, function(req, res){
-  res.sendfile('index.html');
+//  res.sendfile('index.html');
+    res.render('index');
 });
 
 // bind

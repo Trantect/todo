@@ -1,0 +1,20 @@
+!!! 5
+html
+  head
+    title Todo
+    link(rel='stylesheet', href='build.css')
+  body
+    section#content
+      h1 Todo
+      p
+        input(type='text', name='todo', placeholder='What needs to be done?')
+      #links
+        a(href='/') all
+        a(href='/complete') complete
+        a(href='/incomplete') incomplete
+      ul#todos
+    section#pager
+    section#progress
+    script(src='build.js')
+    script
+      require('boot')
