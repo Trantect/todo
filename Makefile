@@ -1,19 +1,38 @@
 
-SRC = $(wildcard client/*/*.js) $(wildcard client/*/*.css)
-HTML = $(wildcard client/*/*.html)
+COFFEE_FILES = $(wildcard client/*/*.coffee)
+JS_FILES = $(patsubst %.coffee, %.js, $(COFFEE_FILES))
+JADE_FILES = $(wildcard client/*/*.jade)
+HTML_FILES = $(patsubst %.jade, %.html, $(JADE_FILES))
+LESS_FILES = $(wildcard client/*/*.less)
+CSS_FILES = $(patsubst %.less, %.css, $(LESS_FILES))
 COMPONENTS = component.json $(wildcard client/*/component.js)
-TEMPLATES = $(HTML:.html=.js)
+TEMPLATES = $(HTML_FILES:.html=.js)
 
-build: components $(SRC) $(TEMPLATES)
+build: components docs $(CSS_FILES) $(JS_FILES) $(TEMPLATES) $(HTML_FILES)
 	@component build
 
 components: $(COMPONENTS)
 	@component install
 
+docs: $(COFFEE_FILES) README.md
+	docco-husky $^
+
+$(JS_FILES): %.js: %.coffee
+	coffee -c $<
+
+$(CSS_FILES): %.css: %.less
+	lessc $< $@
+
+$(HTML_FILES): %.html: %.jade
+	jade $<
+
 %.js: %.html
 	@component convert $<
 
-clean:
-	rm -fr build components $(TEMPLATES)
+watch:
+	jade -w $(JADE_FILES)
 
-.PHONY: clean
+clean:
+	rm -fr docs build components $(TEMPLATES) $(CSS_FILES) $(HTML_FILES) $(JS_FILES)
+
+.PHONY: clean watch
