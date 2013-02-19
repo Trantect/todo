@@ -60,8 +60,9 @@ page "/incomplete", ->
       view = new ItemView(item)
       list.appendChild view.el
 
-# Append a paginator
 page()
+
+# Append a paginator
 Pager = require("pager")
 pager = new Pager
 pager.el.appendTo "#pager"
