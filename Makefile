@@ -8,6 +8,13 @@ CSS_FILES = $(patsubst %.less, %.css, $(LESS_FILES))
 COMPONENTS = component.json $(wildcard client/*/component.js)
 TEMPLATES = $(HTML_FILES:.html=.js)
 
+all: uglify
+
+uglify: build/build.min.js
+
+build/build.min.js: build
+	uglifyjs -c -o $@ build/build.js
+
 build: components docs $(CSS_FILES) $(JS_FILES) $(TEMPLATES) $(HTML_FILES)
 	@component build
 

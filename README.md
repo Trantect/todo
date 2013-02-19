@@ -10,6 +10,7 @@ This Todo project is a sample Web project of following tools:
 * Less
 * Component
 * docco-husky
+* Uglify-js
 
 The code is simple, but workable. It can be used as a reference or a template of a Web project.
 
@@ -20,7 +21,7 @@ Get the source code with `git` or by downloading the source.
 
 Install global npm packages:
 
-	sudo npm install -g less jade coffee-script docco-husky component
+	sudo npm install -g less jade coffee-script docco-husky component urglify-js
 
 Install the required `node.js` packages:
 
