@@ -18,6 +18,10 @@ Installation
 
 Get the source code with `git` or by downloading the source.
 
+Install global npm packages:
+
+	sudo npm install -g less jade coffee-script docco-husky
+
 Install the required `node.js` packages:
 
     npm install
