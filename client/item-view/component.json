@@ -5,7 +5,8 @@
   "dependencies": {
     "component/classes": "*",
     "component/domify": "*",
-    "component/view": "*"
+    "component/view": "*",
+    "component/jquery": "*"
   },
   "development": {},
   "scripts": [

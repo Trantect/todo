@@ -4,6 +4,7 @@ classes = require("classes")
 domify = require("domify")
 html = require("./template")
 View = require("view")
+$ = require("jquery")
 
 # ### ItemView inherits from `View`.
 class ItemView extends View
@@ -16,7 +17,7 @@ class ItemView extends View
     View.call this, item, el[0]
     @classes = classes(@el)
     item.on "change complete", @toggleCompleteClass.bind(this)
-    @el.querySelector(".title").innerHTML = item.title()
+    $(@el).children(".title").html(item.title())
     @bind "click .x", "remove"
     @bind "change [name=complete]", "changed"
     @toggleCompleteClass()
@@ -34,10 +35,10 @@ class ItemView extends View
   # ### Toggle root ".complete" class.
   toggleCompleteClass: ->
     if @obj.complete()
-      @el.querySelector("[name=complete]").checked = true
+      $(@el).children("input").attr('checked','checked')
       @classes.add "complete"
     else
-      @el.querySelector("[name=complete]").checked = false
+      $(@el).children("input").removeAttr('checked')
       @classes.remove "complete"
 
 # Expose `ItemView`.
