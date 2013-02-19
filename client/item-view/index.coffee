@@ -34,8 +34,10 @@ class ItemView extends View
   # ### Toggle root ".complete" class.
   toggleCompleteClass: ->
     if @obj.complete()
+      @el.querySelector("[name=complete]").checked = true
       @classes.add "complete"
     else
+      @el.querySelector("[name=complete]").checked = false
       @classes.remove "complete"
 
 # Expose `ItemView`.
