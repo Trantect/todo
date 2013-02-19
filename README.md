@@ -21,7 +21,7 @@ Get the source code with `git` or by downloading the source.
 
 Install global npm packages:
 
-	sudo npm install -g less jade coffee-script docco-husky component urglify-js
+	sudo npm install -g less jade coffee-script docco-husky component uglify-js
 
 Install the required `node.js` packages:
 
