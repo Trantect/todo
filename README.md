@@ -36,7 +36,7 @@ Run it:
 	
 And generated docs are available at the `docs` folder.
 
-IMPLEMENTATION
+Implementation
 --------------
 
   In this implementation all private client-side components are located in `./client`,
@@ -62,7 +62,7 @@ IMPLEMENTATION
   specified in the root ./component.json, however I recommend splitting your app
   into multiple as shown here, regardless of directory structure.
 
-LICENSE
+License
 -------
 
   MIT
