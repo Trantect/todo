@@ -14,6 +14,7 @@ class ItemView extends View
   #  * **public**
   constructor: (item) ->
     el = domify(html)
+    # [`View.View(obj,el)`](https://github.com/component/view/blob/master/index.js#L29)
     View.call this, item, el[0]
     @classes = classes(@el)
     item.on "change complete", @toggleCompleteClass.bind(this)
@@ -25,11 +26,13 @@ class ItemView extends View
   # ### Complete state change.
   changed: (e) ->
     @obj.complete e.target.checked
+    # [`save()`](https://github.com/component/model/blob/master/lib/proto.js#L155)
     @obj.save()
 
   # ### Remove the item.
   remove: ->
     @el.parentNode.removeChild @el
+    # [`remove()`](https://github.com/component/model/blob/master/lib/proto.js#L127)
     @obj.remove()
 
   # ### Toggle root ".complete" class.
