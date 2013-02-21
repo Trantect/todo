@@ -36,6 +36,12 @@ Run it:
 
     node app
 	
+Or, you can run it in CoffeeScript directly:
+
+    coffee app
+	
+It takes seconds to process the first request, and then becomes faster.
+	
 And generated docs are available at the `docs` folder.
 
 Implementation

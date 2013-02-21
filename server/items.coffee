@@ -8,7 +8,7 @@ indexOf = (id) ->
   len = items.length
 
   while i < len
-    return i  if id is items[i].id
+    return i if id == items[i].id
     ++i
 
 # ### GET all items.
@@ -31,7 +31,7 @@ exports.remove = (req, res) ->
 
 # ### PUT changes to item :id.
 exports.update = (req, res) ->
-  id = req.params.id
+  id = parseInt req.params.id, 10
   i = indexOf(id)
   body = req.body
   item = items[i]
