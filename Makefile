@@ -1,6 +1,9 @@
-
-COFFEE_FILES = $(wildcard client/*/*.coffee)
-JS_FILES = $(patsubst %.coffee, %.js, $(COFFEE_FILES))
+SERVER_COFFEE_FILES = app.coffee $(wildcard server/*.coffee)
+CLIENT_COFFEE_FILES = $(wildcard client/*/*.coffee)
+COFFEE_FILES = $(SERVER_COFFEE_FILES) $(CLIENT_COFFEE_FILES)
+SERVER_JS_FILES = $(patsubst %.coffee, %.js, $(SERVER_COFFEE_FILES))
+CLIENT_JS_FILES = $(patsubst %.coffee, %.js, $(CLIENT_COFFEE_FILES))
+JS_FILES = $(SERVER_JS_FILES) $(CLIENT_JS_FILES)
 JADE_FILES = $(wildcard client/*/*.jade)
 HTML_FILES = $(patsubst %.jade, %.html, $(JADE_FILES))
 LESS_FILES = $(wildcard client/*/*.less)
