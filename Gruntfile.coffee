@@ -17,17 +17,30 @@ module.exports = (grunt) ->
       tasks: ["uglify", "cssmin"]
     less:
       development:
-        files:
-          "client/boot/style.css": "client/boot/style.less"
-          "client/item-view/style.css": "client/item-view/style.less"
+        files:[
+          expand: true
+          client: "client/"
+          src: ['*/*.less']
+          dest: 'client/'
+          ext: '.css'
+          ]
       production:
-        files:
-          "client/boot/style.css": "client/boot/style.less"
-          "client/item-view/style.css": "client/item-view/style.less"
+        files:[
+          expand: true
+          client: "client/"
+          src: ['*/*.less']
+          dest: 'client/'
+          ext: '.css'
+          ]
     jade:
       development:
-        files:
-          "client/item-view/template.html": "client/item-view/template.jade"
+        files:[
+          expand: true
+          client: 'client/'
+          src: ['*/*.jade']
+          dest: 'client/'
+          ext: '.html'
+          ]
   
   # Load the plugin that provides the "uglify" task.
   grunt.loadNpmTasks "grunt-contrib-uglify"
