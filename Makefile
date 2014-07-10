@@ -45,4 +45,4 @@ watch:
 clean:
 	rm -fr docs build components $(TEMPLATES) $(CSS_FILES) $(HTML_FILES) $(JS_FILES)
 
-.PHONY: clean watch
+.PHONY: clean watch build
