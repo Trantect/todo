@@ -33,7 +33,7 @@ class ItemView extends View
   remove: ->
     @el.parentNode.removeChild @el
     # [`remove()`](https://github.com/component/model/blob/master/lib/proto.js#L127)
-    @obj.remove()
+    @obj.destroy()
 
   # ### Toggle root ".complete" class.
   toggleCompleteClass: ->

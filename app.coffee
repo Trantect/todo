@@ -16,9 +16,13 @@ app.configure ->
 
 # items
 app.get "/item/all", items.all
+app.get "/items/", items.all
 app.post "/item", items.create
+app.post "/items", items.create
 app.put "/item/:id", items.update
 app.del "/item/:id", items.remove
+app.put "/items/:id", items.update
+app.del "/items/:id", items.remove
 
 # catch-all
 app.all "*", build, (req, res) ->
