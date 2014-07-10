@@ -1,4 +1,4 @@
 li.item
-  input(type='checkbox', name='complete')
-  label.title 
-  a.x(href='#') ✕
+  input(type='checkbox', name='complete', on-change='save', data-checked='complete')
+  label.title(data-text='title')
+  a.x(href='#', on-click='remove') &#x2715;

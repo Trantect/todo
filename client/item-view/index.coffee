@@ -15,10 +15,10 @@ class ItemView extends View
   constructor: (item) ->
     el = domify(html)
     # [`View.View(obj,el)`](https://github.com/component/view/blob/master/index.js#L29)
-    View.call this, item, el[0]
+    View.call this, item, el
     @classes = classes(@el)
     item.on "change complete", @toggleCompleteClass.bind(this)
-    $(@el).children(".title").html(item.title())
+#    $(@el).children(".title").html(item.title())
     @bind "click .x", "remove"
     @bind "change [name=complete]", "changed"
     @toggleCompleteClass()
@@ -38,10 +38,10 @@ class ItemView extends View
   # ### Toggle root ".complete" class.
   toggleCompleteClass: ->
     if @obj.complete()
-      $(@el).children("input").attr('checked','checked')
+#      $(@el).children("input").attr('checked','checked')
       @classes.add "complete"
     else
-      $(@el).children("input").removeAttr('checked')
+#      $(@el).children("input").removeAttr('checked')
       @classes.remove "complete"
 
 # Expose `ItemView`.
